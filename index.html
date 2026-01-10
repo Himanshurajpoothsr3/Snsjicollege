@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintenance</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            background-color: #111111; 
+            color: #ffffff;
+            overflow: hidden;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .message-container {
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-in; /* Adds a slow fade-in effect */
+        }
+
+        /* The Main Heading */
+        h1 {
+            font-style: italic;
+            font-weight: 600;
+            /* Responsive size: Big on desktop, smaller on mobile */
+            font-size: clamp(1.8rem, 5vw, 4rem);
+            
+            /* Text Gradient */
+            background: -webkit-linear-gradient(#ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            letter-spacing: 1px;
+            margin-bottom: 10px; /* Space between the two lines */
+        }
+
+        /* The Subtitle (Maintenance Line) */
+        p {
+            font-weight: 400;
+            font-size: clamp(0.9rem, 2vw, 1.5rem);
+            color: #bbbbbb; /* Soft grey color */
+            letter-spacing: 3px; /* Wide spacing for a modern look */
+            text-transform: uppercase; /* Makes it look like a subtitle */
+        }
+
+        /* Simple animation to make the text appear smoothly */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="message-container">
+        <h1>Temporarily closed by Admin (Himanshu Singh)</h1>
+        <p>Site is under maintenance</p>
+    </div>
+
+</body>
+</html>
