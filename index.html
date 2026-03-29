@@ -1,76 +1,857 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Maintenance</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>S.N.S. Janta Intermediate College – Excellence in Education</title>
+    <meta name="description"
+        content="S.N.S. Janta Intermediate College, Khushalnagar, Maharajganj – Admissions open for 2026-27. Science, Arts, Computer & Maths streams in a serene green campus." />
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-        body {
-            height: 100vh; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            background-color: #111111; 
-            color: #ffffff;
-            overflow: hidden;
-            font-family: 'Playfair Display', serif;
-        }
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
 
-        .message-container {
-            padding: 20px;
-            text-align: center;
-            animation: fadeIn 2s ease-in; /* Adds a slow fade-in effect */
-        }
+    <!-- Tailwind (must come before script.js so config works) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-        /* The Main Heading */
-        h1 {
-            font-style: italic;
-            font-weight: 600;
-            /* Responsive size: Big on desktop, smaller on mobile */
-            font-size: clamp(1.8rem, 5vw, 4rem);
-            
-            /* Text Gradient */
-            background: -webkit-linear-gradient(#ffffff, #888888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            letter-spacing: 1px;
-            margin-bottom: 10px; /* Space between the two lines */
-        }
-
-        /* The Subtitle (Maintenance Line) */
-        p {
-            font-weight: 400;
-            font-size: clamp(0.9rem, 2vw, 1.5rem);
-            color: #bbbbbb; /* Soft grey color */
-            letter-spacing: 3px; /* Wide spacing for a modern look */
-            text-transform: uppercase; /* Makes it look like a subtitle */
-        }
-
-        /* Simple animation to make the text appear smoothly */
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <!-- Script (deferred so DOM is ready) -->
+    <script src="script.js" defer></script>
 </head>
-<body>
 
-    <div class="message-container">
-        <h1>Temporarily closed by Admin (Himanshu Singh)</h1>
-        <p>Site is under maintenance</p>
+<!-- ============================================================
+     BODY
+     ============================================================ -->
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300">
+
+    <!-- ══════════════════════════════════════════════════════════
+     PAGE LOADER
+     ══════════════════════════════════════════════════════════ -->
+    <div id="page-loader" aria-hidden="true">
+        <img src="logo.png" alt="SNS College" class="loader-logo" />
+        <p class="loader-college-name">S.N.S. JANTA INTERMEDIATE COLLEGE</p>
+        <p class="loader-text">Excellence in Education</p>
+        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
     </div>
 
+    <!-- ══════════════════════════════════════════════════════════
+     TOP CONTACT BAR
+     ══════════════════════════════════════════════════════════ -->
+    <div id="top-bar" class="text-white py-2 text-sm hidden md:block">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-6 flex-wrap gap-y-1">
+                <span class="flex items-center">
+                    <span class="material-icons text-sm mr-2 text-emerald-400">location_on</span>
+                    Khushalnagar, Near Railway Dhala, Maharajganj 273151
+                </span>
+                <a href="mailto:utkarshkushwaha840@gmail.com"
+                    class="flex items-center hover:text-emerald-400 transition-colors">
+                    <span class="material-icons text-sm mr-2 text-emerald-400">email</span>
+                    utkarshkushwaha840@gmail.com
+                </a>
+                <a href="https://wa.me/+918400493600"
+                    class="flex items-center hover:text-emerald-400 transition-colors">
+                    <span class="material-icons text-sm mr-2 text-emerald-400">phone</span>
+                    +91 8400493600
+                </a>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button id="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle colour theme">
+                    <span class="material-icons">dark_mode</span>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+     HEADER / NAV
+     ══════════════════════════════════════════════════════════ -->
+    <header
+        class="bg-white/60 dark:bg-slate-900/60 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between gap-4">
+
+                <!-- Logo -->
+                <a href="#" class="logo-container flex-shrink-0" aria-label="S.N.S. College Home">
+                    <img src="logo.png" alt="SNS College Logo" class="school-logo">
+                </a>
+
+                <!-- School Name (centre) -->
+                <div class="text-center flex-1 hidden md:block">
+                    <h1 class="text-xl md:text-2xl font-display font-bold text-slate-900 dark:text-white leading-tight">
+                        S.N.S. JANTA INTERMEDIATE COLLEGE
+                    </h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 tracking-widest uppercase">
+                        Khushalnagar, Maharajganj &nbsp;·&nbsp; Excellence in Education
+                    </p>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav id="desktop-nav" class="flex items-center gap-6" aria-label="Main navigation">
+                    <a class="text-sm font-semibold uppercase tracking-wide text-primary" href="#">Home</a>
+                    <a class="text-sm font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#about">About</a>
+                    <a class="text-sm font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener">Inquiry</a>
+                    <a class="text-sm font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#gallery">Gallery</a>
+                    <a class="text-sm font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"
+                        href="#contact">Contact</a>
+                    <a href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener"
+                        class="btn-primary-cta ml-2 bg-primary text-white text-xs font-bold uppercase tracking-wide px-5 py-2 rounded-full shadow-md">
+                        Apply Now
+                    </a>
+                    <button id="admin-login-btn" onclick="openAdminLogin()" class="admin-nav-btn ml-1">
+                        <span class="material-icons text-sm">admin_panel_settings</span>
+                        Admin
+                    </button>
+                </nav>
+
+                <!-- Saraswati Mata logo -->
+                <a href="#" class="maa-container flex-shrink-0 hidden md:block" aria-label="Saraswati Mata">
+                    <img src="saraswatimata.png" alt="Saraswati Mata" class="maa-logo">
+                </a>
+
+                <!-- Mobile hamburger -->
+                <button id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+            <!-- Mobile Nav drawer -->
+            <nav id="mobile-nav" aria-label="Mobile navigation">
+                <div class="flex flex-col gap-3 py-4 border-t border-slate-200 dark:border-slate-700 mt-3">
+                    <a class="text-sm font-semibold text-primary px-2 py-1" href="#">Home</a>
+                    <a class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary transition-colors px-2 py-1"
+                        href="#about">About</a>
+                    <a class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary transition-colors px-2 py-1"
+                        href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener">Inquiry</a>
+                    <a class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary transition-colors px-2 py-1"
+                        href="#gallery">Gallery</a>
+                    <a class="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-primary transition-colors px-2 py-1"
+                        href="#contact">Contact</a>
+                    <a href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener"
+                        class="btn-primary-cta bg-primary text-white text-center text-sm font-bold px-5 py-2.5 rounded-full mt-1 mx-2">
+                        Apply Now
+                    </a>
+                    <!-- Mobile Admin Login -->
+                    <button onclick="openAdminLogin()"
+                        class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors px-2 py-1 font-semibold">
+                        <span class="material-icons text-base">admin_panel_settings</span> Admin Login
+                    </button>
+                    <!-- Mobile theme toggle -->
+                    <button onclick="toggleTheme()"
+                        class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors px-2 py-1">
+                        <span class="material-icons text-base">dark_mode</span> Toggle Theme
+                    </button>
+                    <!-- Mobile-only Google Translate -->
+                    <div id="google_translate_element_mobile" class="px-2"></div>
+                </div>
+            </nav>
+
+            <!-- Desktop Google Translate (hidden in mobile nav via the mobile element above) -->
+            <div id="google_translate_element" class="hidden md:block absolute -bottom-8 right-6 z-40"></div>
+        </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════════════
+     HERO SECTION
+     ══════════════════════════════════════════════════════════ -->
+    <section id="hero-section"
+        class="relative h-[580px] md:h-[680px] w-full flex items-center justify-center overflow-hidden">
+
+        <!-- Background image -->
+        <div class="absolute inset-0 z-0">
+            <img alt="S.N.S. College Main Building" class="w-full h-full object-cover" src="background.jpg"
+                loading="eager" />
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/20 dark:from-black/92 dark:via-black/72 dark:to-black/35">
+            </div>
+        </div>
+
+        <!-- Particles canvas -->
+        <canvas id="particles-canvas"></canvas>
+
+        <!-- Content -->
+        <div class="hero-content relative z-10 container mx-auto px-6 text-center md:text-left">
+            <div class="max-w-2xl" data-reveal="up">
+
+                <!-- Badge -->
+                <span
+                    class="admission-badge inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-emerald-500/20 border border-emerald-500/60 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block"></span>
+                    Admissions Open 2026–27
+                </span>
+
+                <!-- Title with typewriter -->
+                <h2 class="hero-title text-4xl md:text-6xl font-display font-bold text-white mb-6 leading-tight drop-shadow-lg"
+                    data-text="Empowering Minds, Shaping Futures.">
+                    Empowering Minds, Shaping Futures.
+                </h2>
+
+                <p class="text-lg text-gray-200 mb-10 font-light leading-relaxed max-w-xl" data-reveal="up">
+                    Welcome to S.N.S. Janta Intermediate College — dedicated to quality education in a nurturing,
+                    nature-blessed environment. Shaping confident leaders since 2016.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a class="btn-primary-cta bg-primary hover:bg-emerald-600 text-white px-9 py-3.5 rounded-full font-bold text-sm tracking-wide shadow-lg"
+                        href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener">
+                        Apply Now
+                    </a>
+                    <a class="btn-glass-cta bg-white/10 text-white border border-white/30 backdrop-blur-md px-9 py-3.5 rounded-full font-semibold text-sm"
+                        href="#about">
+                        Explore Campus
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator text-white/60 flex flex-col items-center gap-1">
+            <span class="material-icons text-3xl">expand_more</span>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     FEATURE CARDS
+     ══════════════════════════════════════════════════════════ -->
+    <section class="relative z-20 -mt-16 container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-stagger>
+
+            <div
+                class="feature-card bg-surface-light dark:bg-surface-dark p-8 rounded-2xl shadow-xl border-t-4 border-primary">
+                <div
+                    class="feature-icon bg-emerald-100 dark:bg-emerald-900/30 w-14 h-14 rounded-2xl flex items-center justify-center mb-5 text-primary">
+                    <span class="material-icons text-2xl">school</span>
+                </div>
+                <h3 class="text-xl font-bold font-display mb-2 text-slate-800 dark:text-white">Academic Excellence</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Rigorous intermediate
+                    education in Arts, Science, Computer and Maths streams preparing students for a bright future.</p>
+            </div>
+
+            <div
+                class="feature-card bg-surface-light dark:bg-surface-dark p-8 rounded-2xl shadow-xl border-t-4 border-primary">
+                <div
+                    class="feature-icon bg-emerald-100 dark:bg-emerald-900/30 w-14 h-14 rounded-2xl flex items-center justify-center mb-5 text-primary">
+                    <span class="material-icons text-2xl">park</span>
+                </div>
+                <h3 class="text-xl font-bold font-display mb-2 text-slate-800 dark:text-white">Green Campus</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">A serene,
+                    pollution-free environment filled with greenery, conducive to learning and mental well-being.</p>
+            </div>
+
+            <div
+                class="feature-card bg-surface-light dark:bg-surface-dark p-8 rounded-2xl shadow-xl border-t-4 border-primary">
+                <div
+                    class="feature-icon bg-emerald-100 dark:bg-emerald-900/30 w-14 h-14 rounded-2xl flex items-center justify-center mb-5 text-primary">
+                    <span class="material-icons text-2xl">emoji_events</span>
+                </div>
+                <h3 class="text-xl font-bold font-display mb-2 text-slate-800 dark:text-white">Expert Faculty</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Dedicated,
+                    experienced teachers committed to the holistic academic, social, and moral development of every
+                    student.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     STATS COUNTER SECTION
+     ══════════════════════════════════════════════════════════ -->
+    <section id="stats-section" class="stats-section py-20 mt-20">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white" data-stagger>
+
+                <div class="stat-card">
+                    <span class="stat-number" data-target="10" data-suffix="+">10+</span>
+                    <p class="mt-2 text-sm font-medium text-emerald-200 uppercase tracking-widest">Years of Excellence
+                    </p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" data-target="200" data-suffix="+">200+</span>
+                    <p class="mt-2 text-sm font-medium text-emerald-200 uppercase tracking-widest">Students Enrolled</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" data-target="10" data-suffix="+">10+</span>
+                    <p class="mt-2 text-sm font-medium text-emerald-200 uppercase tracking-widest">Expert Teachers</p>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" data-target="4" data-suffix="">4</span>
+                    <p class="mt-2 text-sm font-medium text-emerald-200 uppercase tracking-widest">Academic Streams</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     ABOUT SECTION
+     ══════════════════════════════════════════════════════════ -->
+    <section class="py-24 bg-background-light dark:bg-background-dark" id="about">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-14">
+
+                <!-- Image -->
+                <div class="w-full md:w-1/2" data-reveal="left">
+                    <div class="about-img-wrapper relative rounded-2xl overflow-hidden shadow-2xl rotate-2">
+                        <img alt="College Gate and Entrance" class="w-full h-auto object-cover" src="background.jpg" />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <p class="text-white font-semibold text-lg">Main Building</p>
+                            <p class="text-gray-300 text-sm mt-0.5">Khushalnagar, Maharajganj</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text -->
+                <div class="w-full md:w-1/2" data-reveal="right">
+                    <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-3">Our History</h4>
+                    <h2
+                        class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-6 leading-snug">
+                        A Legacy of Learning in the Heart of Nature
+                    </h2>
+                    <p class="text-text-muted-light dark:text-text-muted-dark mb-5 leading-relaxed">
+                        S.N.S. Janta Intermediate College has served as a beacon of knowledge for the community since
+                        2016. Our campus blends traditional values with modern educational methods in a naturally serene
+                        atmosphere.
+                    </p>
+                    <p class="text-text-muted-light dark:text-text-muted-dark mb-8 leading-relaxed">
+                        We believe in fostering an environment where students can grow academically, socially, and
+                        morally. The college premises are blessed with abundant greenery, providing a peaceful
+                        atmosphere away from city noise.
+                    </p>
+
+                    <!-- Feature list -->
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 text-sm font-medium">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-white text-sm">check</span>
+                            </span>
+                            UP Board affiliated Intermediate College
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 text-sm font-medium">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-white text-sm">check</span>
+                            </span>
+                            Arts, Science, Computer & Mathematics streams
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 text-sm font-medium">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                                <span class="material-icons text-white text-sm">check</span>
+                            </span>
+                            Eco-friendly green campus with 5+ acres of land
+                        </li>
+                    </ul>
+
+                    <a href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener"
+                        class="btn-primary-cta inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-full font-bold text-sm shadow-lg">
+                        Get Admission Info
+                        <span class="material-icons text-base">arrow_forward</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     GALLERY
+     ══════════════════════════════════════════════════════════ -->
+    <section class="py-24 bg-surface-light dark:bg-surface-dark" id="gallery">
+        <div class="container mx-auto px-6">
+
+            <div class="text-center mb-14" data-reveal="up">
+                <h4 class="text-primary font-bold uppercase tracking-widest text-xs mb-3">Photo Gallery</h4>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white mb-4">Life on
+                    Campus</h2>
+                <p class="text-text-muted-light dark:text-text-muted-dark max-w-xl mx-auto">Take a glimpse into our
+                    college grounds, classrooms, and vibrant student life.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 h-auto lg:h-[420px]" data-stagger>
+
+                <div class="gallery-item lg:col-span-2 lg:row-span-2">
+                    <img alt="Campus Playground" class="w-full h-full object-cover" src="campus.png" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <div>
+                            <span class="text-white font-bold text-xl block">Playground</span>
+                            <span class="text-emerald-300 text-sm">Sports &amp; Recreation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img alt="College Buildings" class="w-full h-full object-cover" src="building.png" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <div>
+                            <span class="text-white font-bold text-base block">Buildings</span>
+                            <span class="text-emerald-300 text-sm">Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img alt="Classroom" class="w-full h-full object-cover" src="class.jpg" loading="lazy" />
+                    <div class="gallery-overlay">
+                        <div>
+                            <span class="text-white font-bold text-base block">Classroom</span>
+                            <span class="text-emerald-300 text-sm">Learning Spaces</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item lg:col-span-2">
+                    <img alt="Student Activities" class="w-full h-full object-cover" src="students.jpg"
+                        loading="lazy" />
+                    <div class="gallery-overlay">
+                        <div>
+                            <span class="text-white font-bold text-base block">Student Activities</span>
+                            <span class="text-emerald-300 text-sm">Vibrant Community</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-10" data-reveal="up">
+                <a href="#"
+                    class="inline-flex items-center gap-2 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary px-8 py-3 rounded-full font-semibold text-sm transition-all hover:-translate-y-1">
+                    <span class="material-icons text-base">photo_library</span>
+                    View Full Gallery
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     ANNOUNCEMENTS
+     ══════════════════════════════════════════════════════════ -->
+    <section class="py-24 bg-background-light dark:bg-background-dark">
+        <div class="container mx-auto px-6">
+
+            <div class="flex items-center gap-4 mb-12" data-reveal="left">
+                <div class="w-1 h-10 bg-primary rounded-full"></div>
+                <h2 class="text-2xl md:text-3xl font-bold font-display text-slate-900 dark:text-white">Latest
+                    Announcements</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger>
+
+                <article
+                    class="announcement-card bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <span
+                            class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30 px-3 py-1 rounded-full">Admissions</span>
+                        <span class="text-xs text-slate-400 dark:text-slate-500">March 2026</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">Admission Open for Session
+                        2026–2027</h3>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-5 leading-relaxed">Application
+                        forms for Intermediate Science and Arts streams are now available at the college office and
+                        online.</p>
+                    <a class="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline group"
+                        href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener">
+                        Apply Online <span
+                            class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </article>
+
+                <article
+                    class="announcement-card bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <span
+                            class="text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/30 px-3 py-1 rounded-full">Exam</span>
+                        <span class="text-xs text-slate-400 dark:text-slate-500">April 2026</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">Mid-Term Examination Schedule
+                    </h3>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-5 leading-relaxed">The mid-term
+                        exams for Class 11th and 12th will commence next month. Download the schedule from the college
+                        office.</p>
+                    <a class="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline group"
+                        href="#">
+                        Download PDF <span
+                            class="material-icons text-sm group-hover:translate-x-1 transition-transform">download</span>
+                    </a>
+                </article>
+
+                <article
+                    class="announcement-card bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <span
+                            class="text-xs font-bold text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full">Event</span>
+                        <span class="text-xs text-slate-400 dark:text-slate-500">May 2026</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-2">Annual Sports Meet 2026</h3>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-sm mb-5 leading-relaxed">Registration
+                        for the annual sports meet is open. Events include cricket, football, kabaddi, and track
+                        athletics.</p>
+                    <a class="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline group"
+                        href="#">
+                        Register Now <span
+                            class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     CALL TO ACTION BANNER
+     ══════════════════════════════════════════════════════════ -->
+    <section class="py-20 bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-700 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10"
+            style="background-image: url('data:image/svg+xml,%3Csvg width=40 height=40 viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'white\' fill-opacity=\'1\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\'/%3E%3C/g%3E%3C/svg%3E');">
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center" data-reveal="up">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Ready to Join Our Family?</h2>
+            <p class="text-emerald-100 mb-8 max-w-xl mx-auto text-lg">Admissions for 2026–27 session are now open.
+                Secure your child's future with quality education.</p>
+            <a href="https://forms.gle/tCiRH7wxnu88WCMu5" target="_blank" rel="noopener"
+                class="btn-primary-cta inline-block bg-white text-emerald-700 font-bold px-10 py-4 rounded-full shadow-xl text-sm tracking-wide hover:bg-emerald-50">
+                Start Your Application →
+            </a>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════ -->
+    <footer class="bg-slate-900 text-gray-300 pt-16 pb-8 border-t border-gray-800" id="contact">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+                <!-- Brand -->
+                <div class="col-span-1">
+                    <h3 class="text-white text-xl font-bold font-display mb-3">S.N.S. Janta College</h3>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">
+                        Empowering students with knowledge, character, and skills since 2016. A trusted institution in
+                        Maharajganj.
+                    </p>
+                    <div class="footer-social flex space-x-3">
+                        <a href="#" aria-label="Facebook" class="text-gray-400">
+                            <span class="material-icons text-xl">facebook</span>
+                        </a>
+                        <a href="https://wa.me/+918400493600" aria-label="WhatsApp" class="text-gray-400"
+                            target="_blank" rel="noopener">
+                            <span class="material-icons text-xl">chat</span>
+                        </a>
+                        <a href="mailto:utkarshkushwaha840@gmail.com" aria-label="Email" class="text-gray-400">
+                            <span class="material-icons text-xl">email</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-5 uppercase text-xs tracking-widest">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a class="text-gray-400 hover:text-white" href="#">Home</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="#about">About Us</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="#gallery">Gallery</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="#">Examinations</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="#">Results</a></li>
+                        <li><a class="text-gray-400 hover:text-white" href="https://forms.gle/tCiRH7wxnu88WCMu5"
+                                target="_blank" rel="noopener">Apply Now</a></li>
+                    </ul>
+                </div>
+
+                <!-- Streams -->
+                <div>
+                    <h4 class="text-white font-bold mb-5 uppercase text-xs tracking-widest">Academic Streams</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><span class="text-gray-400">Science (PCM / PCB)</span></li>
+                        <li><span class="text-gray-400">Arts</span></li>
+                        <li><span class="text-gray-400">Commerce with Computer</span></li>
+                        <li><span class="text-gray-400">Mathematics</span></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-5 uppercase text-xs tracking-widest">Contact</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 mb-4">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="material-icons text-emerald-400 text-base mt-0.5 flex-shrink-0">location_on</span>
+                            <span>Khushalnagar, Near Railway Dhala, Maharajganj 273151</span>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/+918400493600"
+                                class="flex items-center gap-3 hover:text-emerald-400 transition-colors" target="_blank"
+                                rel="noopener">
+                                <span class="material-icons text-emerald-400 text-base flex-shrink-0">phone</span>
+                                <span>+91 8400493600</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:utkarshkushwaha840@gmail.com"
+                                class="flex items-center gap-3 hover:text-emerald-400 transition-colors">
+                                <span class="material-icons text-emerald-400 text-base flex-shrink-0">email</span>
+                                <span>utkarshkushwaha840@gmail.com</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Map -->
+                    <iframe class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d885.3835402524663!2d83.69745457624538!3d26.98518068576288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1767974118525!5m2!1sen!2sin"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        title="College Location Map">
+                    </iframe>
+                </div>
+
+            </div>
+
+            <!-- Bottom bar -->
+            <div
+                class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-3">
+                <p>© 2026 S.N.S. Janta Intermediate College. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a class="hover:text-emerald-400" href="#">Website by Himanshu Singh</a>
+                    <a class="hover:text-gray-300" href="#">Privacy Policy</a>
+                    <a class="hover:text-gray-300" href="#">Terms of Use</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════════════════════════════
+     LIGHTBOX
+     ══════════════════════════════════════════════════════════ -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button id="lightbox-close" aria-label="Close image viewer">×</button>
+        <img id="lightbox-img" src="" alt="Gallery image" />
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+     ADMIN LOGIN MODAL
+     ══════════════════════════════════════════════════════════ -->
+    <div id="admin-login-modal" class="admin-modal-overlay" role="dialog" aria-modal="true" aria-label="Admin Login">
+        <div class="admin-modal-box">
+            <button class="admin-modal-close" onclick="closeAdminLogin()" aria-label="Close">×</button>
+            <div class="admin-modal-header">
+                <span class="material-icons admin-header-icon">admin_panel_settings</span>
+                <h2 class="admin-modal-title">Admin Login</h2>
+                <p class="admin-modal-subtitle">S.N.S. Janta Intermediate College</p>
+            </div>
+            <form id="admin-login-form" onsubmit="handleAdminLogin(event)" autocomplete="off">
+                <div class="admin-field">
+                    <label for="admin-id">Admin ID</label>
+                    <div class="admin-input-wrap">
+                        <span class="material-icons admin-input-icon">person</span>
+                        <input type="text" id="admin-id" placeholder="Enter admin ID" required autocomplete="off" />
+                    </div>
+                </div>
+                <div class="admin-field">
+                    <label for="admin-pass">Password</label>
+                    <div class="admin-input-wrap">
+                        <span class="material-icons admin-input-icon">lock</span>
+                        <input type="password" id="admin-pass" placeholder="Enter password" required
+                            autocomplete="off" />
+                        <button type="button" class="admin-eye-btn" onclick="toggleAdminPass()"
+                            aria-label="Toggle password">
+                            <span class="material-icons" id="admin-eye-icon">visibility</span>
+                        </button>
+                    </div>
+                </div>
+                <p id="admin-login-error" class="admin-error" aria-live="polite"></p>
+                <button type="submit" class="admin-submit-btn">
+                    <span class="material-icons">login</span> Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+     ADMIN PANEL MODAL
+     ══════════════════════════════════════════════════════════ -->
+    <div id="admin-panel-modal" class="admin-modal-overlay" role="dialog" aria-modal="true" aria-label="Admin Panel">
+        <div class="admin-panel-box">
+            <div class="admin-panel-header">
+                <div class="admin-panel-title-row">
+                    <span class="material-icons" style="color:#10b981;font-size:28px">dashboard</span>
+                    <div>
+                        <h2 class="admin-panel-title">Admin Panel</h2>
+                        <p style="color:#94a3b8;font-size:13px;margin:0">S.N.S. Janta Intermediate College</p>
+                    </div>
+                </div>
+                <button class="admin-panel-logout" onclick="adminLogout()">
+                    <span class="material-icons" style="font-size:16px">logout</span> Logout
+                </button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab active" id="tab-gallery" onclick="switchAdminTab('gallery')">
+                    <span class="material-icons" style="font-size:18px">photo_library</span> Gallery
+                </button>
+                <button class="admin-tab" id="tab-announce" onclick="switchAdminTab('announce')">
+                    <span class="material-icons" style="font-size:18px">campaign</span> Announcements
+                </button>
+            </div>
+
+            <!-- Gallery Tab -->
+            <div id="admin-tab-gallery" class="admin-tab-content">
+                <div class="admin-section-head">
+                    <h3>Gallery Images</h3>
+                    <button class="admin-add-btn" onclick="addGalleryImage()">
+                        <span class="material-icons" style="font-size:16px">add_photo_alternate</span> Add Image
+                    </button>
+                </div>
+                <div id="admin-gallery-list" class="admin-gallery-grid"></div>
+            </div>
+
+            <!-- Announcements Tab -->
+            <div id="admin-tab-announce" class="admin-tab-content" style="display:none">
+                <div class="admin-section-head">
+                    <h3>Announcements</h3>
+                    <button class="admin-add-btn" onclick="addAnnouncement()">
+                        <span class="material-icons" style="font-size:16px">add</span> Add New
+                    </button>
+                </div>
+                <div id="admin-announce-list" class="admin-announce-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+     ADMIN GALLERY IMAGE EDIT MODAL
+     ══════════════════════════════════════════════════════════ -->
+    <div id="admin-img-edit-modal" class="admin-modal-overlay" style="z-index:10100">
+        <div class="admin-modal-box" style="max-width:480px">
+            <button class="admin-modal-close" onclick="closeImgEdit()" aria-label="Close">×</button>
+            <h3 style="color:#e2e8f0;font-size:1.2rem;font-weight:700;margin-bottom:18px" id="img-edit-title">Add
+                Gallery Image</h3>
+            <div class="admin-field">
+                <label>Image URL or Upload</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">link</span>
+                    <input type="url" id="img-edit-url" placeholder="https://... or leave blank to upload" />
+                </div>
+            </div>
+            <div class="admin-field" style="text-align:center">
+                <label>— OR upload from device —</label>
+                <input type="file" id="img-edit-file" accept="image/*"
+                    style="margin-top:8px;color:#94a3b8;width:100%" />
+            </div>
+            <div class="admin-field">
+                <label>Caption</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">title</span>
+                    <input type="text" id="img-edit-caption" placeholder="e.g. Playground" />
+                </div>
+            </div>
+            <div class="admin-field">
+                <label>Sub-caption</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">subtitles</span>
+                    <input type="text" id="img-edit-subcaption" placeholder="e.g. Sports & Recreation" />
+                </div>
+            </div>
+            <input type="hidden" id="img-edit-index" value="-1" />
+            <button class="admin-submit-btn" onclick="saveImgEdit()" style="margin-top:8px">
+                <span class="material-icons">save</span> Save Image
+            </button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+     ADMIN ANNOUNCEMENT EDIT MODAL
+     ══════════════════════════════════════════════════════════ -->
+    <div id="admin-ann-edit-modal" class="admin-modal-overlay" style="z-index:10100">
+        <div class="admin-modal-box" style="max-width:520px">
+            <button class="admin-modal-close" onclick="closeAnnEdit()" aria-label="Close">×</button>
+            <h3 style="color:#e2e8f0;font-size:1.2rem;font-weight:700;margin-bottom:18px" id="ann-edit-title">Add
+                Announcement</h3>
+            <div class="admin-field">
+                <label>Category</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">label</span>
+                    <input type="text" id="ann-edit-cat" placeholder="e.g. Admissions, Exam, Event" />
+                </div>
+            </div>
+            <div class="admin-field">
+                <label>Date Label</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">calendar_today</span>
+                    <input type="text" id="ann-edit-date" placeholder="e.g. March 2026" />
+                </div>
+            </div>
+            <div class="admin-field">
+                <label>Title</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">title</span>
+                    <input type="text" id="ann-edit-heading" placeholder="Announcement heading" />
+                </div>
+            </div>
+            <div class="admin-field">
+                <label>Description</label>
+                <textarea id="ann-edit-desc" class="admin-textarea"
+                    placeholder="Announcement description..."></textarea>
+            </div>
+            <div class="admin-field">
+                <label>Link URL (optional)</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">link</span>
+                    <input type="url" id="ann-edit-link" placeholder="https://..." />
+                </div>
+            </div>
+            <div class="admin-field">
+                <label>Link Text</label>
+                <div class="admin-input-wrap">
+                    <span class="material-icons admin-input-icon">text_fields</span>
+                    <input type="text" id="ann-edit-linktext" placeholder="e.g. Apply Online" />
+                </div>
+            </div>
+            <input type="hidden" id="ann-edit-index" value="-1" />
+            <button class="admin-submit-btn" onclick="saveAnnEdit()" style="margin-top:8px">
+                <span class="material-icons">save</span> Save Announcement
+            </button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+     BACK TO TOP
+     ══════════════════════════════════════════════════════════ -->
+    <button id="back-to-top" aria-label="Back to top">
+        <span class="material-icons">keyboard_arrow_up</span>
+    </button>
+
+    <!-- ══════════════════════════════════════════════════════════
+     GOOGLE TRANSLATE
+     ══════════════════════════════════════════════════════════ -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
+
 </html>
